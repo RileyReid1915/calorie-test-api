@@ -1,10 +1,12 @@
 const express = require('express');
-const cors = require('cors'); // Додаємо CORS
-
+const cors = require('cors'); // Імпортуємо cors
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors()); // Дозволяємо всі запити з будь-якого домену
+// Дозволяємо CORS для всіх запитів
+app.use(cors());
+
+// Дозволяємо обробку JSON-запитів
 app.use(express.json());
 
 app.post('/api/calculate-calories', (req, res) => {
@@ -21,5 +23,5 @@ app.post('/api/calculate-calories', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
