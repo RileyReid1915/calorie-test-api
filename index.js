@@ -3,8 +3,12 @@ const cors = require('cors'); // Імпортуємо cors
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Дозволяємо CORS для всіх запитів
-app.use(cors());
+app.use(cors({
+  origin: 'https://rileyreid1915.github.io', // Дозволяємо тільки ваш сайт
+  methods: ['POST'], // Дозволяємо лише POST-запити
+  allowedHeaders: ['Content-Type']
+}));
+
 
 // Дозволяємо обробку JSON-запитів
 app.use(express.json());
